@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Você não está gordo. Você está inflamado. O passo a passo de jejum do Vitor Show, em 7 módulos.">
+<meta property="og:title" content="Jejum Desinflama e Seca · Vitor Show">
+<meta property="og:description" content="Em 7 dias de jejum do jeito certo, você sente no espelho e na calça o que a balança ainda nem mostrou.">
+<meta property="og:image" content="vitor-show.jpg">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Jejum Desinflama e Seca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: estrutura do Antiotário (hero → ticker → dores → produto → checklist → sem×com → linha do tempo → preço → autor → FAQ → CTA),
+   noite violeta como base + cores de "nascer do sol" (rosa → laranja → amarelo) para ação e limão para "resultado". Tema único, escolhido de propósito. */
+:root{
+  color-scheme: dark;
+  /* paleta do e-book "Jejum Desinflama e Seca": verde floresta, dourado, off-white + mamão e abacate das fotos */
+  --night:#072A21; --night2:#0D3529; --night3:#154234; --night4:#1F4D3D;
+  --t-berry:#0A3026; --t-deep:#05211A; --t-plum:#0B2E25;
+  --pink:#F2783A; --orange:#E8A23A; --sun:#DDBF7D; --lime:#A8D65B; --sky:#8FD4B0;
+  --text:#FBFBF9; --muted:#BFD3C8; --muted2:#86A396;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+  --on-bright:#072A21;
+  --grad-sun:linear-gradient(120deg,#F5DFA6 0%,#DDBF7D 50%,#C4973F 100%);
+  --grad-lime:linear-gradient(120deg,#A8D65B,#8FD4B0);
+  --glow-btn:0 10px 40px rgba(221,191,125,.35),0 0 0 1px rgba(255,255,255,.25) inset;
+  --glow-btn-h:0 22px 70px rgba(221,191,125,.55),0 0 0 1px rgba(255,255,255,.4) inset;
+  --f-display:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gutter:clamp(16px,5vw,64px);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+/* seções claras, como as páginas internas do e-book */
+.light .h2 .hl{background-image:linear-gradient(120deg,#2F6B50,#C4973F)}
+.light{--text:#173A2F;--muted:#3F5D51;--muted2:#6E877C;--night2:#EEF3EF;--night3:#DFEAE2;--line:rgba(7,42,33,.1);--line2:rgba(7,42,33,.16);--sun:#2F6B50;color:var(--text)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--text);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.5px;text-transform:uppercase}
+p{margin:0}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.sec{padding:96px var(--gutter)}
+.wrap{max-width:1100px;margin:0 auto}
+.label{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--sun);margin-bottom:14px}
+.label::before{content:"";width:22px;height:3px;border-radius:3px;background:var(--grad-sun)}
+.h2{font-size:clamp(2.2rem,5.2vw,4.4rem);line-height:1;margin-bottom:18px}
+.h2 .hl{background:var(--grad-sun);-webkit-background-clip:text;background-clip:text;color:transparent}
+.h2 .ok{color:var(--lime)}
+.lead{color:var(--muted);font-size:1.05rem;line-height:1.8;max-width:62ch}
+.lead strong{color:var(--text)}
+.center{text-align:center}.center .lead{margin-inline:auto}
+
+/* progress bar */
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:var(--grad-sun);z-index:300;box-shadow:0 0 12px rgba(221,191,125,.7)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--f-body);font-weight:800;font-size:.92rem;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;color:var(--on-bright);padding:20px 44px;border-radius:999px;border:0;cursor:pointer;position:relative;overflow:hidden;
+  background:linear-gradient(120deg,#C4973F,#F5DFA6,#DDBF7D,#C4973F);background-size:300% 100%;box-shadow:var(--glow-btn);
+  transition:transform .35s var(--ease-spring),box-shadow .35s,letter-spacing .35s;animation:btnBg 5s linear infinite}
+.btn .arr{transition:transform .35s var(--ease-spring)}
+.btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:sweep 3.4s ease-in-out infinite}
+@media (hover:hover){.btn:hover{transform:translateY(-4px) scale(1.03);box-shadow:var(--glow-btn-h);letter-spacing:3.5px}.btn:hover .arr{transform:translateX(6px)}}
+.btn:active{transform:scale(.97);transition-duration:.1s}
+.btn-full{width:100%}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:88px var(--gutter) 0;background:
+  radial-gradient(60% 70% at 85% 30%,rgba(221,191,125,.35),transparent 60%),
+  radial-gradient(50% 60% at 10% 80%,rgba(242,120,58,.25),transparent 60%),
+  radial-gradient(40% 40% at 60% 100%,rgba(168,214,91,.12),transparent 70%),var(--night)}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(to bottom,#000,transparent 85%);pointer-events:none}
+.hero-grid{position:relative;z-index:2;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero-pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(168,214,91,.12);border:1px solid rgba(168,214,91,.4);color:var(--lime);font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;animation:fu .7s .05s both}
+.hero-pill i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime);animation:blink 1.4s infinite}
+.hero h1{font-size:clamp(2.8rem,6.6vw,5.9rem);line-height:.95;margin:22px 0 0;animation:fu .8s .15s both}
+.hero h1 .l2{display:block;background:var(--grad-sun);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 30px rgba(221,191,125,.45))}
+.hero h1 .l3{display:block;color:var(--lime)}
+.hero-sub{color:var(--muted);font-size:clamp(1rem,1.7vw,1.16rem);line-height:1.8;max-width:540px;margin:24px 0 36px;animation:fu .8s .3s both}
+.hero-sub strong{color:var(--text)}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px;animation:fu .8s .45s both}
+.hero-cta small{color:var(--muted2);font-size:.82rem;font-weight:600}
+
+.clock{position:relative;width:100%;max-width:420px;aspect-ratio:1;margin-inline:auto;animation:pop 1s .2s both var(--ease-spring)}
+.clock svg{width:100%;height:100%;overflow:visible}
+.clock .arc{fill:none;stroke-width:30;stroke-linecap:round;transform:rotate(-90deg);transform-origin:160px 160px}
+.clock .fast{stroke:url(#gSun);stroke-dasharray:0 754;animation:drawFast 1.8s .5s forwards cubic-bezier(.65,0,.35,1);filter:drop-shadow(0 0 14px rgba(221,191,125,.6))}
+.clock .eat{stroke:var(--lime);stroke-dasharray:0 754;stroke-dashoffset:-512;animation:drawEat 1s 2.1s forwards ease-out;filter:drop-shadow(0 0 12px rgba(168,214,91,.6))}
+.clock .track{fill:none;stroke:rgba(255,255,255,.07);stroke-width:30}
+.clock .tick{fill:var(--muted2);font:700 11px var(--f-body);letter-spacing:1px}
+.clock-center{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.clock-center b{font-family:var(--f-display);font-weight:400;font-size:clamp(4rem,9vw,6rem);line-height:1;letter-spacing:1px}
+.clock-center span{font-size:.7rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.clock-tag{position:absolute;padding:8px 14px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
+.clock-tag.t1{top:8%;right:-2%;background:var(--sun);color:var(--on-bright);animation:float 4s ease-in-out infinite}
+.clock-tag.t2{bottom:10%;left:-4%;background:var(--lime);color:var(--on-bright);animation:float 4s 1.5s ease-in-out infinite}
+
+.hero-stats{position:relative;z-index:2;margin:72px calc(var(--gutter) * -1) 0;padding:26px var(--gutter);background:rgba(7,42,33,.6);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.hero-stats ul{list-style:none;margin:0 auto;padding:0;max-width:1100px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.hero-stats li{display:flex;flex-direction:column;gap:2px}
+.hero-stats b{font-family:var(--f-display);font-weight:400;font-size:2.2rem;line-height:1;color:var(--sun)}
+.hero-stats span{color:var(--muted);font-size:.85rem}
+
+/* TICKER */
+.ticker{background:var(--grad-sun);color:var(--on-bright);overflow:hidden;padding:14px 0;transform:rotate(-1.2deg);margin:-8px -10px 0;position:relative;z-index:3;box-shadow:0 10px 40px rgba(168,214,91,.25)}
+.ticker-track{display:flex;width:max-content;animation:tk 26s linear infinite}
+.ticker span{font-family:var(--f-display);font-size:1.15rem;letter-spacing:3px;padding:0 26px;white-space:nowrap;text-transform:uppercase}
+.ticker span.sep{padding:0;color:var(--pink)}
+
+/* DORES */
+.s-pain{background:var(--t-deep)}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.pain-card{position:relative;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;gap:16px;align-items:flex-start;padding:28px 24px;border-radius:18px;background:var(--night2);border:1.5px solid var(--line2);
+  transition:transform .35s var(--ease-spring),border-color .3s,background .3s,box-shadow .3s;animation:cardIn .6s both}
+.pain-card:nth-child(2){animation-delay:.08s}.pain-card:nth-child(3){animation-delay:.16s}.pain-card:nth-child(4){animation-delay:.24s}.pain-card:nth-child(5){animation-delay:.32s}.pain-card:nth-child(6){animation-delay:.4s}
+.pain-card .box{flex:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--muted2);display:grid;place-items:center;transition:all .3s var(--ease-spring)}
+.pain-card .box svg{width:16px;height:16px;opacity:0;transform:scale(.3);transition:all .3s var(--ease-spring)}
+.pain-card p{font-weight:600;font-size:1rem;line-height:1.5}
+.pain-card p small{display:block;font-weight:400;color:var(--muted2);font-size:.85rem;margin-top:4px}
+@media (hover:hover){.pain-card:hover{transform:translateY(-6px) rotate(-.4deg);border-color:rgba(221,191,125,.6);box-shadow:0 18px 50px rgba(221,191,125,.18)}}
+.pain-card[aria-pressed="true"]{background:linear-gradient(140deg,rgba(221,191,125,.2),rgba(221,191,125,.06));border-color:var(--sun)}
+.pain-card[aria-pressed="true"] .box{background:var(--sun);border-color:var(--sun)}
+.pain-card[aria-pressed="true"] .box svg{opacity:1;transform:scale(1)}
+.pain-meter{margin:40px auto 0;max-width:420px;text-align:center}
+.pain-meter .bar{height:10px;border-radius:999px;background:var(--night3);overflow:hidden}
+.pain-meter .fill{height:100%;width:0;background:var(--grad-sun);border-radius:999px;transition:width .5s var(--ease-spring);box-shadow:0 0 16px rgba(221,191,125,.6)}
+.pain-meter p{margin-top:12px;color:var(--muted);font-size:.92rem}
+.pain-meter p b{color:var(--text)}
+
+/* PRODUTO */
+.s-prod{background:var(--t-plum)}
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.hbox{position:relative;overflow:hidden;margin-top:28px;padding:30px;border-radius:20px;background:var(--night3);border:1px solid var(--line2)}
+.hbox::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--grad-sun)}
+.hbox .big{position:absolute;right:-6px;bottom:-34px;font-family:var(--f-display);font-size:9rem;line-height:1;color:rgba(221,191,125,.1);pointer-events:none}
+.hbox ul{list-style:none;margin:0;padding:0;display:grid;gap:14px;position:relative}
+.hbox li{display:flex;gap:12px;align-items:flex-start;color:var(--muted)}
+.hbox li b{color:var(--text)}
+.mods{list-style:none;margin:0;padding:0;display:grid;gap:16px;position:relative}
+.mods li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;color:var(--muted);font-size:.93rem;line-height:1.55}
+.mods li b{display:block;color:var(--text);font-size:1rem;margin-bottom:2px}
+.mods .mn{font-family:var(--f-display);font-size:1.5rem;line-height:1.1;color:var(--sun);min-width:2ch}
+.dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--lime);color:var(--on-bright);display:grid;place-items:center;margin-top:2px}
+.dot svg{width:12px;height:12px}
+.mock{position:relative;max-width:420px;margin-inline:auto;width:100%}
+.phone{position:relative;aspect-ratio:9/16;max-width:290px;margin-inline:auto;border-radius:40px;padding:14px;background:linear-gradient(160deg,#3A1E6B,#160A2E);border:2px solid var(--line2);box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(221,191,125,.25);transform:rotate(4deg);transition:transform .5s var(--ease-spring)}
+@media (hover:hover){.mock:hover .phone{transform:rotate(0) scale(1.02)}}
+.screen{height:100%;border-radius:28px;background:var(--grad-sun);padding:22px 18px;display:flex;flex-direction:column;gap:12px;color:var(--on-bright)}
+.screen .s-top{font-size:.66rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.screen .s-h{font-family:var(--f-display);font-size:2.1rem;line-height:.95;text-transform:uppercase}
+.screen .s-card{background:rgba(255,255,255,.85);border-radius:16px;padding:12px 14px;font-size:.78rem;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.screen .s-card span{font-weight:600;opacity:.7}
+.screen .s-card.done{background:var(--on-bright);color:var(--lime)}
+.badge-round{position:absolute;top:-12px;left:0;width:118px;height:118px;border-radius:50%;background:var(--lime);color:var(--on-bright);display:grid;place-content:center;text-align:center;transform:rotate(-12deg);box-shadow:0 14px 40px rgba(168,214,91,.4);animation:spin 18s linear infinite}
+.badge-round b{font-family:var(--f-display);font-weight:400;font-size:2.6rem;line-height:.9}
+.badge-round span{font-size:.62rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+
+/* SEM x COM */
+.s-tf{background:var(--night);background-image:radial-gradient(40% 60% at 10% 50%,rgba(221,191,125,.12),transparent 70%),radial-gradient(40% 60% at 90% 50%,rgba(168,214,91,.1),transparent 70%)}
+.tf{max-width:1160px;margin:48px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch}
+.panel{padding:38px 32px;border-radius:24px}
+.panel h3{font-size:1.9rem;margin-bottom:22px;display:flex;gap:12px;align-items:center}
+.panel ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.panel li{display:flex;gap:14px;align-items:flex-start;padding:12px;border-radius:12px;transition:background .25s}
+@media (hover:hover){.panel li:hover{background:rgba(255,255,255,.05)}}
+.panel li .sq{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:800}
+.panel li b{display:block;font-size:.98rem}
+.panel li small{color:var(--muted2);font-size:.82rem}
+.bad{background:rgba(242,120,58,.07);border:1.5px solid rgba(242,120,58,.35)}
+.bad h3{color:var(--pink)}
+.bad .sq{background:rgba(242,120,58,.18);color:var(--pink)}
+.good{background:rgba(168,214,91,.07);border:1.5px solid rgba(168,214,91,.4);box-shadow:0 0 80px rgba(168,214,91,.08)}
+.good h3{color:var(--lime)}
+.good .sq{background:var(--lime);color:var(--on-bright)}
+.vs{display:grid;place-items:center;padding:0 18px;position:relative}
+.vs::before{content:"";position:absolute;top:10%;bottom:10%;width:2px;background:linear-gradient(var(--pink),var(--lime))}
+.vs span{position:relative;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:var(--sun);color:var(--on-bright);font-family:var(--f-display);font-size:1.5rem;box-shadow:0 0 0 8px var(--night),0 0 40px rgba(221,191,125,.5)}
+
+/* LINHA DO TEMPO */
+.s-time{background:var(--t-berry)}
+.time-card{max-width:900px;margin:44px auto 0;padding:36px;border-radius:28px;background:var(--night2);border:1px solid var(--line2);box-shadow:0 30px 90px rgba(0,0,0,.35)}
+.time-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px}
+.time-top label{display:block;font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.time-top input[type=time]{font:700 1.1rem var(--f-body);color:var(--text);background:var(--night3);border:1.5px solid var(--line2);border-radius:12px;padding:10px 14px}
+.time-top input[type=time]:focus{border-color:var(--sun);outline:none;box-shadow:0 0 0 4px rgba(221,191,125,.2)}
+.hours{text-align:right}
+.hours b{font-family:var(--f-display);font-weight:400;font-size:clamp(3.4rem,8vw,5rem);line-height:1;background:var(--grad-sun);-webkit-background-clip:text;background-clip:text;color:transparent;font-variant-numeric:tabular-nums}
+.hours span{display:block;font-size:.75rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+.range-wrap{margin:28px 0 8px;position:relative}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:999px;background:linear-gradient(90deg,#F2783A 0%,#E8A23A 33%,#DDBF7D 55%,#A8D65B 75%,#8FD4B0 100%);outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:34px;height:34px;border-radius:50%;background:#fff;border:6px solid var(--on-bright);box-shadow:0 0 0 3px #fff,0 6px 20px rgba(0,0,0,.4);transition:transform .2s}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:6px solid var(--on-bright);box-shadow:0 0 0 3px #fff}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
+input[type=range]:focus-visible{outline:3px solid var(--sun);outline-offset:6px}
+.scale{display:flex;justify-content:space-between;color:var(--muted2);font-size:.75rem;font-weight:700;font-variant-numeric:tabular-nums}
+.phase{margin-top:26px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:22px;border-radius:18px;background:var(--night3)}
+.phase .ph-n{width:76px;height:76px;border-radius:20px;display:grid;place-items:center;font-family:var(--f-display);font-size:1.6rem;color:var(--on-bright);background:var(--sun);transition:background .4s}
+.phase h4{font-size:1.6rem;margin-bottom:4px}
+.phase p{color:var(--muted);font-size:.95rem}
+.phase-list{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:14px}
+.phase-list button{font:700 .7rem var(--f-body);letter-spacing:1px;text-transform:uppercase;color:var(--muted2);background:transparent;border:1px solid var(--line2);border-radius:10px;padding:8px 4px;cursor:pointer;transition:all .25s}
+.phase-list button.on{color:var(--on-bright);background:var(--sun);border-color:var(--sun)}
+.note{margin-top:16px;color:var(--muted2);font-size:.8rem}
+
+/* PREÇO */
+.urgency{background:var(--grad-sun);color:var(--on-bright);padding:16px var(--gutter);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 24px;font-weight:800;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;text-align:center}
+.cd{display:flex;gap:8px}
+.cd div{min-width:56px;padding:6px 8px;border-radius:10px;background:var(--on-bright);color:var(--sun);text-align:center}
+.cd b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.7rem;line-height:1;font-variant-numeric:tabular-nums}
+.cd small{font-size:.55rem;letter-spacing:1.5px;color:var(--muted)}
+.s-price{background:var(--t-plum);background-image:radial-gradient(50% 40% at 50% 0%,rgba(221,191,125,.3),transparent 70%)}
+.pill-ok{display:inline-block;padding:8px 18px;border-radius:999px;background:rgba(168,214,91,.12);border:1px solid rgba(168,214,91,.45);color:var(--lime);font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:18px}
+.price-box{position:relative;max-width:520px;margin:40px auto 0;padding:3px;border-radius:30px;background:linear-gradient(120deg,#C4973F,#F5DFA6,#A8D65B,#DDBF7D,#C4973F);background-size:300% 300%;animation:btnBg 6s linear infinite;box-shadow:0 40px 120px rgba(0,0,0,.5),0 0 90px rgba(221,191,125,.3)}
+.price-in{position:relative;overflow:hidden;border-radius:27px;padding:40px 34px 34px;background:radial-gradient(circle at 50% 0%,rgba(242,120,58,.28),transparent 45%),var(--night2);text-align:center}
+.ribbon{position:absolute;top:26px;right:-46px;transform:rotate(45deg);background:var(--lime);color:var(--on-bright);font-size:.66rem;font-weight:800;letter-spacing:2px;padding:6px 52px;text-transform:uppercase}
+.hot{display:inline-block;padding:7px 14px;border-radius:999px;background:rgba(242,120,58,.15);color:var(--pink);font-size:.7rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.price-in h3{font-size:2rem;margin:16px 0 4px}
+.from{color:var(--muted2);font-size:.9rem}
+.from s{color:var(--muted)}
+.price{display:flex;justify-content:center;align-items:flex-start;gap:6px;margin:8px 0 2px;font-variant-numeric:tabular-nums}
+.price .cur{font-weight:800;font-size:1.4rem;color:var(--muted);margin-top:18px}
+.price .num{font-family:var(--f-display);font-size:7rem;line-height:1;background:var(--grad-sun);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price .cents{font-family:var(--f-display);font-size:2.2rem;margin-top:14px;color:var(--sun)}
+.inst{color:var(--muted);font-size:.9rem;margin-bottom:24px}
+.feat{list-style:none;margin:0 0 24px;padding:16px;border-radius:18px;background:rgba(0,0,0,.22);border:1px solid var(--line);display:grid;gap:10px;text-align:left}
+.feat li{display:flex;gap:12px;align-items:center;font-size:.93rem;font-weight:600}
+.secure{margin-top:14px;color:var(--muted2);font-size:.8rem;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 14px}
+
+.guar{max-width:820px;margin:48px auto 0;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;padding:30px;border-radius:24px;background:linear-gradient(140deg,rgba(168,214,91,.12),rgba(60,224,255,.08));border:1.5px solid rgba(168,214,91,.35)}
+.seal{width:110px;height:110px;border-radius:50%;background:var(--grad-lime);color:var(--on-bright);display:grid;place-content:center;text-align:center;box-shadow:0 0 0 6px rgba(168,214,91,.15),0 10px 40px rgba(168,214,91,.3)}
+.seal b{font-family:var(--f-display);font-weight:400;font-size:2.8rem;line-height:.9}
+.seal span{font-size:.6rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+.guar h4{font-size:1.9rem;color:var(--lime);margin-bottom:6px}
+.guar p{color:var(--muted)}
+
+/* AUTORA */
+.s-auth{background:#FBFBF9}
+.auth{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+.ph{position:relative;width:min(320px,78vw);max-width:100%;aspect-ratio:3/4;border-radius:28px;background:var(--grad-sun);padding:8px;box-shadow:0 30px 70px rgba(7,42,33,.25);transform:rotate(-2deg);transition:transform .5s var(--ease-spring)}
+@media (hover:hover){.ph:hover{transform:rotate(0) scale(1.02)}}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 65%;border-radius:21px}
+.ph .handle{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);background:var(--lime);color:var(--on-bright);border-radius:999px;padding:8px 16px;font-size:.78rem;font-weight:800;white-space:nowrap}
+.auth h3{font-size:clamp(2.2rem,4vw,3rem);line-height:1.05;margin:4px 0 14px}
+.auth p+p{margin-top:14px}
+.creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.creds span{padding:8px 14px;border-radius:999px;border:1px solid var(--line2);font-size:.8rem;font-weight:700;color:var(--muted)}
+
+/* FAQ */
+.s-faq{background:#F3F6F2}
+.faq{max-width:760px;margin:40px auto 0}
+.faq-item{border-bottom:1px solid var(--line2)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:0;color:var(--text);font:700 1rem var(--f-body);text-align:left;cursor:pointer;transition:color .25s}
+@media (hover:hover){.faq-q:hover{color:var(--sun)}}
+.faq-q i{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;font-style:normal;font-size:1.2rem;color:var(--muted);transition:all .35s var(--ease-spring)}
+.faq-item.open .faq-q i{transform:rotate(45deg);background:var(--night4);border-color:var(--night4);color:#FBFBF9}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a > div{overflow:hidden}
+.faq-a p{color:var(--muted);padding-bottom:22px;line-height:1.75}
+
+/* CTA FINAL */
+.cta-final{position:relative;overflow:hidden;padding:120px var(--gutter);text-align:center;background:var(--grad-sun)}
+.cta-final::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(7,42,33,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(7,42,33,.08) 1px,transparent 1px);background-size:44px 44px}
+.cta-final > *{position:relative}
+.cta-final h2{font-size:clamp(3rem,9vw,7.5rem);line-height:.9;color:var(--on-bright)}
+.cta-final h2 span{display:inline-block;color:#FBFBF9;text-shadow:0 6px 0 var(--on-bright);animation:wobble 2.6s ease-in-out infinite}
+.cta-final p{color:var(--on-bright);font-weight:600;font-size:1.1rem;max-width:560px;margin:22px auto 36px}
+.cta-final .btn{background:var(--on-bright);color:var(--sun);animation:none;box-shadow:0 14px 40px rgba(7,42,33,.4)}
+.cta-final .btn::before{background:linear-gradient(90deg,transparent,rgba(221,191,125,.35),transparent)}
+
+footer{padding:44px var(--gutter);background:var(--t-deep);color:var(--muted2);font-size:.82rem;text-align:center;line-height:1.7}
+footer .logo{font-family:var(--f-display);font-size:1.6rem;letter-spacing:2px;color:var(--text);margin-bottom:10px}
+footer .logo b{font-weight:400;color:var(--sun)}
+footer p{max-width:720px;margin:0 auto}
+
+/* keyframes */
+@keyframes fu{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.85) rotate(-8deg)}to{opacity:1;transform:none}}
+@keyframes cardIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes drawFast{to{stroke-dasharray:500 754}}
+@keyframes drawEat{to{stroke-dasharray:226 754}}
+@keyframes btnBg{to{background-position:300% 0}}
+@keyframes sweep{0%,60%{left:-60%}100%{left:130%}}
+@keyframes tk{to{transform:translateX(-50%)}}
+@keyframes blink{50%{opacity:.25}}
+@keyframes float{50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(348deg)}}
+@keyframes wobble{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg) scale(1.05)}}
+
+
+/* ANTES E DEPOIS */
+.s-ba{background:var(--t-deep);background-image:radial-gradient(50% 50% at 50% 0%,rgba(221,191,125,.14),transparent 70%)}
+.ba-grid{max-width:1240px;margin:48px auto 0;display:grid;grid-template-columns:1.254fr 1fr 1fr;gap:18px;align-items:start}
+.ba-grid figure{margin:0;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4);transition:transform .45s var(--ease-spring),box-shadow .45s}
+.ba-grid img{display:block;width:100%;height:auto}
+@media (hover:hover){.ba-grid figure:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 2px var(--sun)}}
+.ba-foot{max-width:760px;margin:36px auto 0;text-align:center;display:grid;gap:22px;justify-items:center}
+.ba-foot p{color:var(--muted2);font-size:.82rem}
+@media (max-width:900px){.ba-grid{grid-template-columns:1fr 1fr}.ba-grid figure:first-child{grid-column:1 / -1}}
+@media (max-width:560px){.ba-grid{grid-template-columns:1fr}}
+
+/* responsivo */
+@media (max-width:900px){
+  .pain-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-stats ul{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:768px){
+  .sec{padding-block:72px}
+  .hero{padding-top:56px}
+  .hero-grid,.prod-grid,.auth{grid-template-columns:1fr;gap:44px}
+  .hero-grid .clock{max-width:320px}
+  .tf{grid-template-columns:1fr}
+  .vs{padding:14px 0}
+  .vs::before{top:50%;bottom:auto;left:10%;right:10%;width:auto;height:2px;background:linear-gradient(90deg,var(--pink),var(--lime))}
+  .phase-list{grid-template-columns:repeat(3,1fr)}
+  .auth{justify-items:center;text-align:center}.auth .creds{justify-content:center}
+  .guar{grid-template-columns:1fr;justify-items:center;text-align:center}
+}
+@media (max-width:560px){
+  .pain-grid{grid-template-columns:1fr}
+  .btn{padding:18px 26px;font-size:.84rem;letter-spacing:2px;width:100%}
+  .time-card{padding:24px 18px}
+  .hours{text-align:left}
+  .phase{grid-template-columns:1fr}
+  .price-in{padding:36px 20px 26px}
+  .price .num{font-size:5.6rem}
+  .panel{padding:28px 18px}
+  .clock-tag.t1{right:0}.clock-tag.t2{left:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .clock .fast{stroke-dasharray:500 754}.clock .eat{stroke-dasharray:226 754}
+}
+</style>
+
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="hero-pill"><i></i>Vitor Show · Desafio de 7 dias</span>
+      <h1>Você não está gordo.
+        <span class="l2">Você está inflamado.</span>
+        <span class="l3">E a culpa não é sua.</span>
+      </h1>
+      <p class="hero-sub">Ninguém te contou que <strong>comer 5 vezes por dia mantém seu corpo inflamado.</strong> Em 7 dias de jejum do jeito certo, você vai sentir <strong>no espelho e na calça</strong> o que a balança ainda nem mostrou.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#preco">Quero o e-book <span class="arr">→</span></a>
+        <small>PDF · 7 módulos · 2 bônus · Acesso imediato</small>
+      </div>
+    </div>
+    <div class="clock" aria-label="Janela humanizada: última refeição às 20h, primeira refeição ao meio-dia, 16 horas de jejum">
+      <svg viewBox="0 0 320 320" aria-hidden="true">
+        <defs>
+          <linearGradient id="gSun" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F5DFA6"/><stop offset=".55" stop-color="#DDBF7D"/><stop offset="1" stop-color="#C4973F"/>
+          </linearGradient>
+        </defs>
+        <circle class="track" cx="160" cy="160" r="120"/>
+        <circle class="arc fast" cx="160" cy="160" r="120"/>
+        <circle class="arc eat" cx="160" cy="160" r="120"/>
+        <text class="tick" x="160" y="16" text-anchor="middle">20H</text>
+        <text class="tick" x="310" y="164" text-anchor="middle">02H</text>
+        <text class="tick" x="160" y="314" text-anchor="middle">08H</text>
+        <text class="tick" x="10" y="164" text-anchor="middle">14H</text>
+      </svg>
+      <div class="clock-center"><b>16:8</b><span>20h → 12h</span></div>
+      <span class="clock-tag t1">O sono também conta</span>
+      <span class="clock-tag t2">Quebra ao meio-dia</span>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <ul>
+      <li><b>+200 MIL</b><span>seguidores em menos de um ano</span></li>
+      <li><b>+10 MIL</b><span>pessoas nos grupos e mentorias</span></li>
+      <li><b>+1 ANO</b><span>praticando jejum todos os dias</span></li>
+      <li><b>0</b><span>calorias pra contar</span></li>
+    </ul>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Desembrulhe menos, descasque mais</span><span class="sep">✦</span><span>A fome vem e passa</span><span class="sep">✦</span><span>O sono também conta</span><span class="sep">✦</span><span>Seu corpo não é calculadora</span><span class="sep">✦</span><span>O sal não é o vilão</span><span class="sep">✦</span>
+    <span>Desembrulhe menos, descasque mais</span><span class="sep">✦</span><span>A fome vem e passa</span><span class="sep">✦</span><span>O sono também conta</span><span class="sep">✦</span><span>Seu corpo não é calculadora</span><span class="sep">✦</span><span>O sal não é o vilão</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- DORES -->
+<section class="sec s-pain">
+  <div class="wrap center">
+    <span class="label">Seja sincero</span>
+    <h2 class="h2">Quantas dessas <span class="hl">já aconteceram</span> com você?</h2>
+    <p class="lead">Toque em cada uma que for verdade. Se marcar <strong>duas ou mais</strong>, o problema não é força de vontade. Ninguém te mostrou a ordem certa.</p>
+  </div>
+  <div class="wrap">
+    <div class="pain-grid" id="pains">
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Tentou jejum e no segundo dia veio dor de cabeça, tontura e fraqueza<small>Achou que era fome. Quase nunca é. Tem nome e tem solução, e está no módulo 2.</small></p></button>
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Conta caloria no aplicativo e mesmo assim não sai do lugar<small>Seu corpo não é uma calculadora. Ele responde ao que vai no prato e à hora que vai.</small></p></button>
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Belisca o dia inteiro e nem lembra o que comeu<small>Um pedaço aqui, um biscoito ali. A cozinha nunca fecha.</small></p></button>
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Acorda inchado, com a calça apertando mais de manhã do que deveria<small>Muito disso é água retida. E o que você comeu às 20h tem tudo a ver.</small></p></button>
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Não sabe se o café, o chá ou o limão quebram o jejum<small>E acaba quebrando sem perceber, com um detalhe que parece inofensivo.</small></p></button>
+      <button class="pain-card" aria-pressed="false"><span class="box"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="#072A21" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><p>Tem pavor de sentir fome<small>Pensa em desmaio, fraqueza, mau humor. Por isso nunca passa das 10 da manhã.</small></p></button>
+    </div>
+    <div class="pain-meter">
+      <div class="bar"><div class="fill" id="painFill"></div></div>
+      <p id="painTxt"><b>0 de 6</b> marcados</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUTO -->
+<section class="sec s-prod" id="produto">
+  <div class="wrap prod-grid">
+    <div>
+      <span class="label">O que tem dentro</span>
+      <h2 class="h2"><span class="hl">7 módulos.</span> Da última refeição de hoje à janela secreta.</h2>
+      <p class="lead">Não é teoria de livro. É a rotina que eu faço todo dia, escrita na ordem em que você deve aprender. Cada módulo responde uma pergunta que trava quem está começando.</p>
+      <div class="hbox">
+        <ol class="mods">
+          <li><span class="mn">01</span><span><b>Sua última refeição</b>Por que o prato das 20h decide se amanhã seu corpo vai gastar gordura ou continuar queimando o que sobrou do jantar. Com os 2 pratos que eu uso.</span></li>
+          <li><span class="mn">02</span><span><b>Água e sal</b>O copo de 2 ingredientes que eu tomo antes de qualquer coisa ao acordar, e por que a dor de cabeça no jejum quase nunca é fome.</span></li>
+          <li><span class="mn">03</span><span><b>O que pode e o que não pode</b>Jejum clássico × jejum metabólico, o shot matinal que eu tomo todo dia e o detalhe no café que quebra o jejum sem você perceber.</span></li>
+          <li><span class="mn">04</span><span><b>Refeições diárias</b>A ordem certa do prato e as carnes de segunda que custam menos e seguram a fome por mais tempo.</span></li>
+          <li><span class="mn">05</span><span><b>O segredo está aqui</b>A janela que eu prefiro. Não é a das 20h, e ela usa o sono a seu favor.</span></li>
+          <li><span class="mn">06</span><span><b>O que fazer agora</b>Quando faz sentido pensar em 24 horas, e por que você não deve começar por aí.</span></li>
+          <li><span class="mn">07</span><span><b>Jejum na prática</b>Os materiais para você tirar do papel no mesmo dia.</span></li>
+        </ol>
+        <span class="big" aria-hidden="true">07</span>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="badge-round"><b>+2</b><span>bônus</span></div>
+      <div class="phone">
+        <div class="screen">
+          <span class="s-top">Seu dia 1 no método</span>
+          <span class="s-h">Janela humanizada</span>
+          <div class="s-card done">Última refeição low carb <span style="color:var(--lime);opacity:1">20:00 ✓</span></div>
+          <div class="s-card done">Água + sal integral <span style="color:var(--lime);opacity:1">Ao acordar ✓</span></div>
+          <div class="s-card done">Café preto, sem açúcar <span style="color:var(--lime);opacity:1">✓</span></div>
+          <div class="s-card">3 ovos + parmesão + contrafilé <span>12:00</span></div>
+          <div class="s-card">Pausa sem belisco <span>6 a 8h</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEM x COM -->
+<section class="sec s-tf">
+  <div class="wrap center">
+    <span class="label">A diferença</span>
+    <h2 class="h2">Dieta de sempre <span class="hl">×</span> <span class="ok">o que eu faço</span></h2>
+  </div>
+  <div class="tf">
+    <div class="panel bad">
+      <h3>✗ A dieta de sempre</h3>
+      <ul>
+        <li><span class="sq">✗</span><span><b>Comer de 3 em 3 horas</b><small>E a fome nunca vai embora de verdade</small></span></li>
+        <li><span class="sq">✗</span><span><b>Pesar comida e contar caloria</b><small>Dura uma semana, depois cansa</small></span></li>
+        <li><span class="sq">✗</span><span><b>Whey, barrinha e pré-treino</b><small>Muita embalagem, pouca comida de verdade</small></span></li>
+        <li><span class="sq">✗</span><span><b>Fome tratada como emergência</b><small>Bateu, comeu. Sempre.</small></span></li>
+        <li><span class="sq">✗</span><span><b>Dor de cabeça e desistência</b><small>No segundo dia de jejum, sem entender o motivo</small></span></li>
+      </ul>
+    </div>
+    <div class="vs"><span>VS</span></div>
+    <div class="panel good">
+      <h3>✓ Jejum Desinflama e Seca</h3>
+      <ul>
+        <li><span class="sq">✓</span><span><b>Duas refeições que saciam</b><small>Meio-dia e oito da noite, com pausa sem belisco</small></span></li>
+        <li><span class="sq">✓</span><span><b>Olhar o prato, não a calculadora</b><small>Proteína primeiro, depois gordura, carboidrato no mínimo</small></span></li>
+        <li><span class="sq">✓</span><span><b>Desembrulhar menos, descascar mais</b><small>Raízes, frutas, ovos e carne</small></span></li>
+        <li><span class="sq">✓</span><span><b>Fome como um estado</b><small>Ela vem e passa. Olha no relógio.</small></span></li>
+        <li><span class="sq">✓</span><span><b>Água com sal ao acordar</b><small>Repõe o que você perdeu durante a noite</small></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LINHA DO TEMPO -->
+<section class="sec s-time" id="relogio">
+  <div class="wrap center">
+    <span class="label">Olha no relógio</span>
+    <h2 class="h2">Você jantou às 20h. <span class="hl">O que seu corpo está fazendo agora?</span></h2>
+    <p class="lead">Coloque a hora da sua última refeição. O relógio mostra em que ponto da janela você está, e o que vem a seguir.</p>
+  </div>
+  <div class="time-card">
+    <div class="time-top">
+      <div>
+        <label for="lastMeal">Minha última refeição foi às</label>
+        <input type="time" id="lastMeal" value="20:00">
+      </div>
+      <div class="hours"><b id="hrs">0h</b><span>de relógio sem comer</span></div>
+    </div>
+    <div class="range-wrap">
+      <input type="range" id="hourRange" min="0" max="24" step="0.25" value="14" aria-label="Horas em jejum">
+    </div>
+    <div class="scale"><span>0h</span><span>4h</span><span>8h</span><span>12h</span><span>16h</span><span>20h</span><span>24h</span></div>
+    <div class="phase">
+      <div class="ph-n" id="phN">12h</div>
+      <div><h4 id="phT">—</h4><p id="phD">—</p></div>
+    </div>
+    <div class="phase-list" id="phList"></div>
+    <p class="note">Faixas aproximadas; o ritmo varia de pessoa para pessoa. Dica do Vitor: quando a fome bater, olhe a hora. Na maioria das vezes ela não dura nem dez minutos.</p>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section class="sec s-ba" id="resultados">
+  <div class="wrap center">
+    <span class="label">Quem tirou do papel</span>
+    <h2 class="h2">Eles pararam de lutar contra a fome. <span class="hl">O espelho respondeu.</span></h2>
+    <p class="lead">Alunos e mentorados do Vitor que colocaram a janela, o prato e a água com sal na rotina, e não largaram.</p>
+  </div>
+  <div class="ba-grid">
+    <figure><img src="antes-depois-1.jpg" alt="Antes e depois de uma aluna: barriga inchada à esquerda, abdômen definido à direita" width="1100" height="877" loading="lazy"></figure>
+    <figure><img src="antes-depois-2.jpg" alt="Antes e depois de um aluno de perfil na praia e depois na academia, com menos barriga" width="1100" height="1100" loading="lazy"></figure>
+    <figure><img src="antes-depois-3.jpg" alt="Antes e depois de um aluno de frente, com redução visível de gordura abdominal" width="1100" height="1100" loading="lazy"></figure>
+  </div>
+  <div class="ba-foot">
+    <a class="btn" href="#preco">Quero ser o próximo <span class="arr">→</span></a>
+    <p>Resultados individuais, alcançados ao longo de meses de prática e, em alguns casos, com treino. Não representam o que acontece em 7 dias, e cada corpo responde de um jeito.</p>
+  </div>
+</section>
+
+<!-- PREÇO -->
+<div id="preco">
+  <div class="urgency">
+    <span>Preço de lançamento termina em</span>
+    <div class="cd" id="cd">
+      <div><b id="cdD">00</b><small>DIAS</small></div>
+      <div><b id="cdH">00</b><small>HORAS</small></div>
+      <div><b id="cdM">00</b><small>MIN</small></div>
+      <div><b id="cdS">00</b><small>SEG</small></div>
+    </div>
+  </div>
+  <section class="sec s-price">
+    <div class="wrap center">
+      <span class="pill-ok">Acesso imediato no seu e-mail</span>
+      <h2 class="h2">Hoje às 20h você já pode <span class="hl">começar sua primeira janela</span></h2>
+      <p class="lead">O e-book chega em minutos. Você lê o módulo 1 na hora do almoço e monta o prato da noite já do jeito certo.</p>
+    </div>
+    <div class="price-box">
+      <div class="price-in">
+        <span class="ribbon">+2 bônus</span>
+        <span class="hot">E-book completo</span>
+        <h3>Jejum Desinflama e Seca</h3>
+        <p class="from">De <s>R$ 97,00</s> por apenas</p>
+        <div class="price"><span class="cur">R$</span><span class="num">27</span><span class="cents">,00</span></div>
+        <p class="inst">Pagamento único · Sem mensalidade</p>
+        <ul class="feat">
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>7 módulos com a rotina completa do Vitor</li>
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Os 2 pratos da última refeição: low carb e cetogênica</li>
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Protocolo ao amanhecer e lista do que pode e não pode</li>
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>A janela secreta, a preferida do Vitor</li>
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Bônus 1:</b> 20 tábuas ancestrais criadas por ele</span></li>
+          <li><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Bônus 2:</b> planilha de treino Full Body para iniciantes</span></li>
+        </ul>
+        <a class="btn btn-full" href="#">Quero meu e-book agora <span class="arr">→</span></a>
+        <div class="secure"><span>🔒 Pagamento seguro</span><span>Pix · Cartão</span><span>Leia no celular</span></div>
+      </div>
+    </div>
+
+    <div class="guar">
+      <div class="seal"><b>7</b><span>dias de<br>garantia</span></div>
+      <div>
+        <h4>Faça os 7 dias por minha conta</h4>
+        <p>Siga o método por uma semana. Se não fizer sentido pra você, peça o reembolso e você recebe 100% de volta. E eu já te adianto: nos primeiros três dias, muito do que muda na balança é água. A desinflamação vem antes, e você sente na roupa.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- AUTOR -->
+<section class="sec s-auth light">
+  <div class="auth">
+    <div class="ph"><img src="vitor-show.jpg" alt="Vitor Show na cozinha segurando uma tábua com ovos, peixe, kiwi e abacaxi" width="891" height="1600"><span class="handle">@vitorshow1</span></div>
+    <div>
+      <span class="label">Quem está te ensinando</span>
+      <h3>Eu não comecei o jejum pra emagrecer</h3>
+      <p class="lead">Sou o <strong>Vitor Show</strong>. Comecei a fazer jejum atrás de clareza mental, foco e bem-estar. O resto veio junto. Hoje são mais de um ano de prática diária, <strong>mais de 200 mil seguidores</strong> acompanhando minha rotina em menos de um ano e <strong>mais de 10 mil pessoas</strong> nos meus grupos e mentorias.</p>
+      <p class="lead">Não sou médico nem nutricionista, e não vou fingir que sou. O que eu te entrego aqui é o que eu faço todos os dias, do jeito que eu faço, com os erros que eu já cometi pra você não precisar cometer.</p>
+      <div class="creds"><span>+1 ano de jejum diário</span><span>+200 mil seguidores</span><span>+10 mil nos grupos e mentorias</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec s-faq light">
+  <div class="wrap center">
+    <span class="label">Dúvidas</span>
+    <h2 class="h2">Antes de você <span class="hl">perguntar</span></h2>
+  </div>
+  <div class="faq" id="faq">
+    <div class="faq-item open"><button class="faq-q" aria-expanded="true">Vou passar fome? <i>+</i></button><div class="faq-a"><div><p>Você vai sentir fome em alguns momentos, e vai aprender que ela é um estado: vem e passa. Começando pela janela das 20h, a maior parte do jejum acontece enquanto você dorme. O e-book mostra o que fazer nos momentos em que a fome aparece.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Café quebra o jejum? <i>+</i></button><div class="faq-a"><div><p>Café preto, sem açúcar e sem adoçante, pode. Café aromatizado, com açúcar ou adoçante, não. No módulo 3 está a lista completa do que entra e do que fica de fora.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Preciso de suplemento, whey ou cápsula? <i>+</i></button><div class="faq-a"><div><p>Não. O método é comida de verdade, água e sal integral. Nenhum suplemento é indicado no e-book.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Trabalho até tarde. Funciona pra mim? <i>+</i></button><div class="faq-a"><div><p>Funciona. A janela humanizada, com última refeição às 20h e primeira ao meio-dia, foi pensada justamente para quem não consegue jantar cedo. A janela secreta é um passo a mais, para quando a sua rotina permitir.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Em quanto tempo vejo diferença? <i>+</i></button><div class="faq-a"><div><p>Muita gente percebe mudança na primeira semana. Mas vou ser direto: nos primeiros dias, boa parte do que sai da balança é água retida. É por isso que a garantia é de 7 dias, para você testar com calma.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Quem não deve fazer? <i>+</i></button><div class="faq-a"><div><p>Gestantes, lactantes, menores de 18 anos, pessoas com histórico de transtorno alimentar, quem usa medicação para diabetes e quem tem pressão alta ou doença nos rins (por causa do sal) devem conversar com o médico antes. O Vitor não é profissional de saúde, e o e-book não substitui acompanhamento.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Como eu recebo? <i>+</i></button><div class="faq-a"><div><p>Assim que o pagamento é aprovado, o PDF e os bônus chegam no seu e-mail. No Pix e no cartão, a liberação é na hora.</p></div></div></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Tire do papel.<br>Coloque na <span>prática.</span></h2>
+  <p>Você já sabe o que não funciona. Hoje às 20h pode ser sua última refeição do jeito antigo.</p>
+  <a class="btn" href="#preco">Quero começar hoje <span class="arr">→</span></a>
+</section>
+
+<footer>
+  <div class="logo">VITOR<b>SHOW</b></div>
+  <p>O e-book Jejum Desinflama e Seca tem caráter educativo e reflete a experiência pessoal do autor, que não é médico nem nutricionista. Não substitui consulta com profissional de saúde. Os resultados variam de pessoa para pessoa. Procure um médico antes de iniciar o jejum, principalmente se você tem alguma condição de saúde ou usa medicação.</p>
+  <p style="margin-top:10px">© 2026 Jejum Desinflama e Seca · Vitor Show · Todos os direitos reservados</p>
+</footer>
+
+<script>
+(() => {
+  // barra de leitura
+  const prog = document.getElementById('prog');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // dores
+  const cards = [...document.querySelectorAll('.pain-card')];
+  const fill = document.getElementById('painFill'), txt = document.getElementById('painTxt');
+  const upd = () => {
+    const n = cards.filter(c => c.getAttribute('aria-pressed') === 'true').length;
+    fill.style.width = (n / cards.length * 100) + '%';
+    const msg = n === 0 ? 'marcados' : n < 2 ? 'marcado. Continue…' : 'marcados. Não é falta de força de vontade. É falta de método 👇';
+    txt.innerHTML = `<b>${n} de ${cards.length}</b> ${msg}`;
+  };
+  cards.forEach(c => c.addEventListener('click', () => {
+    c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); upd();
+  }));
+
+  // linha do tempo
+  const phases = [
+    { from: 0,  to: 4,  tag: '0–4h',  t: 'Digestão',              d: 'Seu corpo ainda está usando a energia do jantar. Por isso o prato das 20h importa tanto: proteína e gordura primeiro, carboidrato no mínimo.', c: '#F2783A' },
+    { from: 4,  to: 8,  tag: '4–8h',  t: 'A glicemia desce',      d: 'Com a pausa, a glicemia começa a cair e a insulina acompanha. Boa parte disso acontece enquanto você dorme.', c: '#EE8D3A' },
+    { from: 8,  to: 12, tag: '8–12h', t: 'Hora da água com sal',  d: 'Você acordou. Antes de qualquer coisa: 300 a 500 ml de água com meia colher de chá de sal integral. Café preto liberado.', c: '#E8A23A' },
+    { from: 12, to: 16, tag: '12–16h',t: 'Energia escondida',     d: 'Com a reserva do jantar mais baixa, o corpo passa a buscar outro combustível: aquela gordura que estava guardada.', c: '#DDBF7D' },
+    { from: 16, to: 18, tag: '16–18h',t: 'Janela 16:8 completa',  d: 'Você fechou 16 horas de relógio. Quebre o jejum começando pela proteína e pela gordura, não pelo carboidrato.', c: '#A8D65B' },
+    { from: 18, to: 24.01,tag: '18–24h',t: 'Território avançado', d: 'Isso já é próxima etapa. Primeiro domine 16 horas e duas refeições; o módulo 6 explica quando avançar.', c: '#8FD4B0' }
+  ];
+  const range = document.getElementById('hourRange'), hrs = document.getElementById('hrs');
+  const phN = document.getElementById('phN'), phT = document.getElementById('phT'), phD = document.getElementById('phD');
+  const list = document.getElementById('phList'), lastMeal = document.getElementById('lastMeal');
+  phases.forEach(p => {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = p.tag;
+    b.addEventListener('click', () => { range.value = p.from + (p.to - p.from) / 2; render(); });
+    list.appendChild(b);
+  });
+  function render() {
+    const v = +range.value;
+    const h = Math.floor(v), m = Math.round((v - h) * 60);
+    hrs.textContent = m ? `${h}h${String(m).padStart(2, '0')}` : `${h}h`;
+    const i = phases.findIndex(p => v >= p.from && v < p.to);
+    const p = phases[i];
+    phN.textContent = p.tag.split('–')[0] + 'h+'; phN.style.background = p.c;
+    phT.textContent = p.t; phD.textContent = p.d;
+    [...list.children].forEach((b, j) => b.classList.toggle('on', j === i));
+  }
+  function fromMeal() {
+    const [H, M] = (lastMeal.value || '20:00').split(':').map(Number);
+    const now = new Date(), last = new Date(now);
+    last.setHours(H, M, 0, 0);
+    if (last > now) last.setDate(last.getDate() - 1);
+    const diff = Math.min(24, (now - last) / 36e5);
+    range.value = Math.round(diff * 4) / 4; render();
+  }
+  range.addEventListener('input', render);
+  lastMeal.addEventListener('input', fromMeal);
+  fromMeal();
+
+  // contagem regressiva (troque pela data real do fim da oferta)
+  const OFFER_END = new Date('2026-10-12T23:59:59-03:00');
+  const el = id => document.getElementById(id);
+  const pad = n => String(n).padStart(2, '0');
+  function tick() {
+    let s = Math.max(0, Math.floor((OFFER_END - Date.now()) / 1000));
+    el('cdD').textContent = pad(Math.floor(s / 86400)); s %= 86400;
+    el('cdH').textContent = pad(Math.floor(s / 3600)); s %= 3600;
+    el('cdM').textContent = pad(Math.floor(s / 60));
+    el('cdS').textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(q => q.addEventListener('click', () => {
+    const item = q.parentElement, open = !item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(x => { x.classList.remove('open'); x.querySelector('.faq-q').setAttribute('aria-expanded', 'false'); });
+    if (open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); }
+  }));
+})();
+</script>
+
+</body>
+</html>
